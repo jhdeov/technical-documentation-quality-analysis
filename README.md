@@ -14,7 +14,7 @@ Research questions:
 - Do traditional readability formulas agree with transformer-based readability models?
 - Can automated NLP methods identify documentation areas requiring editorial attention?
 
-The answer is yes.
+The answer is **yes**.
 
 ---
 
@@ -51,9 +51,12 @@ The analysis began with an established rule-based readability method. Flesch-Kin
 
 Using the Python package `textstat`, readability scores were calculated across the documentation corpus.
 
+**Code**: [Flesch_Kincaid_on_ServiceNow](notebooks/Flesch_Kincaid_on_ServiceNow.ipynb)
+
 # Transformer-Based Readability Models
 
-Two transformer-based readability models were evaluated:
+Two transformer-based readability models were evaluated. These models use deep-learning representations of language rather than manually defined readability formulas.
+
 
 ## ModernBERT Readability Model
 
@@ -61,12 +64,18 @@ Two transformer-based readability models were evaluated:
 - Trained on datasets containing software-related documentation
 - Expected to provide strong alignment with technical documentation
 
+Model on HuggingFace: [kiddom/modernbert-readability-grade-predictor](https://huggingface.co/kiddom/modernbert-readability-grade-predictor)
+
+**Source code**:
+
 ## DeBERTa Readability Model
 
 - Produces a wider readability range extending beyond high school levels
 - Captures documents requiring college-level reading ability
 
-These models use deep-learning representations of language rather than manually defined readability formulas.
+Model on HuggingFace: [gentlans/deberta-v3-base-readability-v2](https://huggingface.co/agentlans/deberta-v3-base-readability-v2)
+
+**Source code**:
 
 ---
 
@@ -74,9 +83,12 @@ These models use deep-learning representations of language rather than manually 
 
 ## Traditional Readability Analysis
 
-Flesch-Kincaid analysis showed that most documentation requires a high school education or above.
+Flesch-Kincaid analysis showed that most documentation requires a high school education or above. The scores showed a normal distribution hovering around a `13th-14th'' grade education, meaning late high school or early college education.
 
 This result aligns with expectations for software documentation, which is primarily written for technical audiences.
+
+<img src="figures/fleschkincaid_grade_histogram.png" alt="Flesch-Kincaid grades" width="50%">
+
 
 ---
 
@@ -103,6 +115,8 @@ The two models differ in scoring behavior:
 - Produces a broader range of readability grades
 - Captures documents extending into college-level difficulty
 - Provides greater granularity for highly technical documents
+
+
 
 ### ModernBERT
 
