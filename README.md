@@ -87,7 +87,7 @@ Flesch-Kincaid analysis showed that most documentation requires a high school ed
 
 This result aligns with expectations for software documentation, which is primarily written for technical audiences.
 
-<img src="figures/fleschkincaid_grade_histogram.png" alt="Flesch-Kincaid grades" width="50%">
+<img src="figures/fleschkincaid_grade_histogram.png" alt="Flesch-Kincaid grades" width="80%">
 
 
 ---
@@ -116,6 +116,7 @@ The two models differ in scoring behavior:
 - Captures documents extending into college-level difficulty
 - Provides greater granularity for highly technical documents
 
+<img src="figures/deberta_lftk_corpus_readability_charts.png" alt="DeBERTa grades" width="80%">
 
 
 ### ModernBERT
@@ -125,6 +126,16 @@ The two models differ in scoring behavior:
 - May provide better domain-specific estimates for technical content
 
 Overall, both models identified similar relative difficulty patterns across documents.
+
+<img src="figures/modernbert_lftk_corpus_readability_charts.png" alt="ModernBERT grades" width="80%">
+
+### Two BERTs Together
+
+The two BERT models also generally agree with each other.
+
+We took the average of the two BERT scores (1-12 and 1-20) and the result looks visually the same as the (1-12) system
+
+<img src="figures/fig_distribution.png" alt="DeBERTa vs. ModernBERT vs. Consensus" width="80%">
 
 ---
 
@@ -158,6 +169,8 @@ Automated readability analysis can help identify:
 
 For example, application-development documentation showed some of the highest complexity scores, which is expected given the technical expertise required by the target audience. In contrast, mobile documentation was rated among the easiest to read, which makes sense because they typically use a simple task structure.
 
+<img src="figures/fig_sections.png" alt="Sections by difficulty" width="80%">
+
 ---
 
 ## Competitive Documentation Analysis
@@ -169,6 +182,13 @@ However, comparable analysis is limited by data accessibility. Some platforms do
 A possible future direction would be targeted comparisons of specific documentation bundles. For example, we evaluated Server API Reference documentation from the ServiceNow repository against the Apex Developer Guide documentation of a competitor SalesForce. The competitor's documentation was downloaded as a PDF from the SalesForce documentation website.
 
 **Competitor site**: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_apex_developer_guide.pdf
+
+* ServiceNow “Server API Reference” : 1215 MDs, average 12.4
+* Salesforce ” Apex Developer Guide” : 261 MDs, average 11.3
+* Comparable and the 1 grade level difference could just be because of doc size
+
+<img src="figures/temporary.png" alt="Comparison of ServiceNow vs. SalesForce" width="80%">
+
 
 ---
 
